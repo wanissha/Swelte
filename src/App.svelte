@@ -50,7 +50,8 @@
 
   router('/', () => { page = PageHome; });
   router('/login', () => { page = PageLogin; });
-  router('/prefix', authMiddleware(() => { page = PageCRUD; }));
+  // router('/prefix', authMiddleware(() => { page = PageCRUD; }));
+  router('/prefix', () => { page = PageCRUD; });
 
   router.start();
 </script>
