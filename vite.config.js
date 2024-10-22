@@ -28,6 +28,7 @@ export default defineConfig({
       '/api': {
         target: 'http://10.80.6.165:3000', // Backend API URL
         changeOrigin: true,
+        secure: false,
         rewrite: (path) => path.replace(/^\/api/, ''), // Strips '/api' from the path
       },
     },
