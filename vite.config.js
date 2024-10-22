@@ -1,22 +1,8 @@
-// import { defineConfig } from 'vite'
-// import { svelte } from '@sveltejs/vite-plugin-svelte'
-
-// // https://vitejs.dev/config/
-// export default defineConfig({
-//   plugins: [svelte()],
-// })
-// import { defineConfig } from 'vite';
-// import { svelte } from '@sveltejs/vite-plugin-svelte';
-
-// export default defineConfig({
-//   plugins: [svelte()],
-//   build: {
-//     outDir: 'dist'  // Ensure this matches your firebase.json
-//   }
-// });
-
 import { defineConfig } from 'vite';
 import { svelte } from '@sveltejs/vite-plugin-svelte';
+import dotenv from 'dotenv';
+
+dotenv.config(); // Load .env files
 
 export default defineConfig({
   plugins: [svelte()],
@@ -26,10 +12,9 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://10.80.6.165:3000', // Backend API URL
+        target: 'http://10.80.6.165:3000',
         changeOrigin: true,
-        secure: false,
-        rewrite: (path) => path.replace(/^\/api/, ''), // Strips '/api' from the path
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },
