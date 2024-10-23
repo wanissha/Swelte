@@ -72,8 +72,9 @@
   });
 
   async function handleLogin() {
+    let response;
     try {
-      const response = await axios.post(`${API_URL}/login`, {
+        response = await axios.post(`${API_URL}/login`, {
         username,
         password,
       });
@@ -89,6 +90,8 @@
         : 'Login failed. Please try again later.';
       console.error('Login error:', error);
     }
+    console.log(response.data);
+    
   }
 </script>
 
